@@ -1,1 +1,3 @@
 https://memorynotfound.com/spring-mvc-xml-configuration-example/ :Sample spring core servlete
+
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html :spring servlet document

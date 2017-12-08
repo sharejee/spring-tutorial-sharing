@@ -30,3 +30,4 @@
     </servlet-mapping>
 
 </web-app>
+<!--register and initialize the DispatcherServlet-->
