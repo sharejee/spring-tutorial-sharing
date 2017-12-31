@@ -4,6 +4,7 @@ import com.memorynotfound.model.Employee;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,21 +55,43 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public Employee getById(int id) {
-        return null;
+        String sql = "select *from Employee where id=?";
+        Employee employee = (Employee) jdbcTemplate.queryForObject(sql, new Object[]
+                { id }, new RowMapper<Employee>()
+        {
+            @Override
+            public Employee mapRow(ResultSet rs, int rowNum) throws SQLException
+            {
+                Employee employee = new Employee();
+                employee.setId(rs.getInt("ID"));
+                employee.setDepartment(rs.getString("DEPARTMENT"));
+                employee.setAge(rs.getInt("AGE"));
+                employee.setName(rs.getString("NAME"));
+                return employee;
+            }
+        });
+        return employee;
     }
 
     @Override
     public void saveEmployee(Employee employee) {
-
+        String sql = "insert into Employee values(?,?,?,?)";
+        System.out.println("dao called");
+        jdbcTemplate.update(sql, new Object[]
+                {employee.getId(), employee.getName(),employee.getAge(), employee.getDepartment()});
     }
 
     @Override
     public void updateEmployee(Employee employee) {
-
+        String sql = "update Employee set age =?, department=?,name=? where id=?";
+        jdbcTemplate.update(sql, new Object[]
+                { employee.getAge(), employee.getDepartment(), employee.getName(), employee.getId() });
     }
 
     @Override
     public void deleteEmployee(int id) {
-
+        String sql = "delete from employee where id=?";
+        jdbcTemplate.update(sql, new Object[]
+                { id });
     }
 }
