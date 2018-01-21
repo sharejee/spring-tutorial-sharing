@@ -15,6 +15,10 @@
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 
+    <bean id="userDAOImpl" class="com.memorynotfound.dao.security.impl.UserDAOImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
     <!-- Database Configurations -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
