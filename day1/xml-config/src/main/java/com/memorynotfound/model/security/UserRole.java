@@ -5,7 +5,7 @@ package com.memorynotfound.model.security;
  * Create Date: 01/21/2018.
  */
 public class UserRole {
-    private Integer userRoleId;
+    private Long userRoleId;
     private String role;
     private User user;
 
@@ -16,11 +16,11 @@ public class UserRole {
         this.user = user;
         this.role = role;
     }
-    public Integer getUserRoleId() {
+    public Long getUserRoleId() {
         return userRoleId;
     }
 
-    public void setUserRoleId(Integer userRoleId) {
+    public void setUserRoleId(Long userRoleId) {
         this.userRoleId = userRoleId;
     }
 

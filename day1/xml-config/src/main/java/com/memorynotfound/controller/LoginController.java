@@ -1,3 +1,4 @@
+/*
 package com.memorynotfound.controller;
 
 import org.springframework.stereotype.Controller;
@@ -6,13 +7,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+*/
 /**
  * Created by : Ron Rith
  * Create Date: 01/07/2018.
- */
+ *//*
+
 @Controller
 public class LoginController {
-    @RequestMapping(value = {"/welcome/**" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/welcome*/
+/**" }, method = RequestMethod.GET)
     public ModelAndView welcomePage() {
 
         ModelAndView model = new ModelAndView();
@@ -23,7 +27,8 @@ public class LoginController {
 
     }
 
-    @RequestMapping(value = "/admin/**", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin*/
+/**", method = RequestMethod.GET)
     public ModelAndView adminPage() {
 
         ModelAndView model = new ModelAndView();
@@ -56,3 +61,4 @@ public class LoginController {
     }
 
 }
+*/
