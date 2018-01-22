@@ -43,7 +43,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                     employee.setId(resultSet.getInt("id"));
                     employee.setName(resultSet.getString("name"));
                     employee.setAge(resultSet.getInt("age"));
-                    employee.setDepartment(resultSet.getString("department"));
+                    employee.setDepartment(resultSet.getString(3));
 
                     employeeList.add(employee);
                 }
@@ -64,7 +64,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             {
                 Employee employee = new Employee();
                 employee.setId(rs.getInt("ID"));
-                employee.setDepartment(rs.getString("DEPARTMENT"));
+                employee.setDepartment(rs.getString(1));
                 employee.setAge(rs.getInt("AGE"));
                 employee.setName(rs.getString("NAME"));
                 return employee;
@@ -83,7 +83,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void updateEmployee(Employee employee) {
-        String sql = "update Employee set age =?, department=?,name=? where id=?";
+        String sql = "update Employee set age =?, dept=?,name=? where id=?";
         jdbcTemplate.update(sql, new Object[]
                 { employee.getAge(), employee.getDepartment(), employee.getName(), employee.getId() });
     }
